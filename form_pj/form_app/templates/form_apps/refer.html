@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>form_app</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'form_app/css/style.css' %}" >
+</head>
+<body>
+    <h1>TEST_EMPS Refer</h1>
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="search">
+    </form>
+    <br/>
+    <table class="list_table">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>GENDER</th>
+            <th>MAIL</th>
+            <th>AGE</th>
+            <th>BIRTHDAY</th>
+        </tr>
+    {% for item in data %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{% if item.gender == 0 %}male{% endif %}
+                {% if item.gender == 1 %}famale{% endif %}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.birthday}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <hr>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="back">
+    </form>
+</body>
+</html>

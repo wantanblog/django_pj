@@ -3,6 +3,9 @@ from django.urls import path
 from form_app import views
 
 urlpatterns = [
+    path('home', views.index,name='index'),
     path('', views.index,name='index'),
-    path('form', views.form,name='form'),
+    path('entry', views.entry,name='entry'),
+    path('refer', views.refer,name='refer'),
+    path('search', views.search,name='search'),
 ]

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>hello_app</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello_app/css/style.css' %}" >
+</head>
+<body>
+    <h1>TEST TEMPLATE.</h1>
+    <p>{{name}}</p>
+    <p>{{password}}</p>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <p>{{form}}</p>
+        <input type="submit" value="click">
+    </form>
+</body>
+</html>
