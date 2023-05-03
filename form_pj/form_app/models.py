@@ -1,5 +1,5 @@
 from django.db import models
-
+        
 class test_emps(models.Model):
     name = models.CharField(max_length=100)
     mail = models.EmailField(max_length=200)

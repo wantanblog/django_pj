@@ -7,13 +7,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'form_app/css/style.css' %}" >
 </head>
 <body>
-    <h1>FORM TEST.</h1>
+    <h1>TEST_EMPS Entry</h1>
     <form action="{% url 'entry' %}" method="post">
         {% csrf_token %}
         <table>
-            {{formAppForm}}
+            {{empsEntryForm}}
         </table>
-        <input type="submit" value="click">
+        <input type="submit" value="entry">
     </form>
     <br>
     <hr>
