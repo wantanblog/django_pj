@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>form_app</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'form_app/css/style.css' %}" >
+</head>
+<body>
+    <h1>TEST_EMPS Edit</h1>
+    <!-- 更新用フォーム -->
+    <form action="{% url 'edit' id %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{editform}}
+        </table>
+        <input type="submit" value="update">
+    </form>
+    <br>
+    <!-- 削除用フォーム -->
+    <form action="{% url 'delete' id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete">
+    </form>
+    <br>
+    <hr>
+    <form action="{% url 'refer' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="back">
+    </form>
+</body>
+</html>

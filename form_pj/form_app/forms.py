@@ -1,9 +1,11 @@
 from socket import fromshare
 from django import forms
+from.models import test_emps
 
-class formAppForm(forms.Form):
-    name = forms.CharField(label='name')
-    password = forms.CharField(label='password')
+class EmpsEntryForm(forms.ModelForm):
+    class Meta:
+        model = test_emps
+        fields = ['name','mail','gender','age','birthday']
 
 class SearchForm(forms.Form):
     searchName = forms.CharField(label='name')

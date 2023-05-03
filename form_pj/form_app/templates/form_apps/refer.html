@@ -25,7 +25,7 @@
         </tr>
     {% for item in data %}
         <tr>
-            <td>{{item.id}}</td>
+            <td><a href="{% url 'editInit' item.id %}">{{item.id}}</a></td>
             <td>{{item.name}}</td>
             <td>{% if item.gender == 0 %}male{% endif %}
                 {% if item.gender == 1 %}famale{% endif %}</td>
